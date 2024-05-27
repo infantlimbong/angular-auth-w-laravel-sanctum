@@ -1,0 +1,32 @@
+<div class="container mx-auto p-4">
+    <div class="flex justify-between items-center mb-2">
+      <h2 class="text-2xl font-semibold">Car List</h2>
+      <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-opacity-80" (click)="navigateToAddCar()">Add Car</button>
+    </div>
+    <div class="overflow-x-auto">
+      <table class="min-w-full bg-white border border-gray-200">
+        <thead class="text-left">
+          <tr class="bg-gray-200">
+            <th class="py-2 px-4 border-b">Brand</th>
+            <th class="py-2 px-4 border-b">Model</th>
+            <th class="py-2 px-4 border-b">License Plate</th>
+            <th class="py-2 px-4 border-b">Rental Rate</th>
+            <th class="py-2 px-4 border-b">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let car of cars" class="border-b">
+            <td class="py-2 px-4">{{ car.brand }}</td>
+            <td class="py-2 px-4">{{ car.model }}</td>
+            <td class="py-2 px-4">{{ car.license_plate }}</td>
+            <td class="py-2 px-4">Rp{{ formatRentalRate(car.rental_rate) }}</td>
+            <td class="py-2 px-4 flex space-x-2">
+              <button class="bg-red-500 text-white px-2 py-1 rounded hover:bg-opacity-80" (click)="deleteCar(car.id)">Delete</button>
+              <button class="bg-yellow-500 text-white px-2 py-1 rounded hover:bg-opacity-80" (click)="navigateToEdit(car.id)">Edit</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

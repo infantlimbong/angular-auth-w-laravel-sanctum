@@ -1,0 +1,47 @@
+<section class="px-5">
+  <div class="flex items-center justify-center flex-col mt-10">
+    <h1 class="text-center font-semibold text-2xl mb-5">Create new Car</h1>
+    <form [formGroup]="carForm" (ngSubmit)="onSubmit()" class="w-full max-w-2xl">
+      <div class="mb-3 grid w-full">
+        <label for="brand" class="block text-sm font-medium">
+          Car brand<span class="text-red-500">*</span>
+          <span *ngIf="carForm.get('brand')?.invalid && (carForm.get('brand')?.dirty || carForm.get('brand')?.touched)" class="text-red-500">
+            Car brand is required.
+          </span>
+        </label>
+        <input id="brand" type="text" formControlName="brand" class="border border-gray-400 py-2 px-3 rounded-md focus:outline-none">
+      </div>
+      <div class="mb-3 grid w-full">
+        <label for="model" class="block text-sm font-medium">
+          Car Model<span class="text-red-500">*</span>
+          <span *ngIf="carForm.get('model')?.invalid && (carForm.get('model')?.dirty || carForm.get('model')?.touched)" class="text-red-500">
+            Car model is required.
+          </span>
+        </label>
+        <input formControlName="model" type="text" class="border border-gray-400 py-2 px-3 rounded-md focus:outline-none">
+      </div>
+      <div class="mb-3 grid w-full">
+        <label for="license_plate" class="block text-sm font-medium">
+          License Plate<span class="text-red-500">*</span>
+          <span *ngIf="carForm.get('license_plate')?.invalid && (carForm.get('license_plate')?.dirty || carForm.get('license_plate')?.touched)" class="text-red-500">
+            License plate is required.
+          </span>
+        </label>
+        <input formControlName="license_plate" type="text" class="border border-gray-400 py-2 px-3 rounded-md focus:outline-none">
+      </div>
+      <div class="mb-3 grid w-full">
+        <label for="rental_rate" class="block text-sm font-medium">
+          Rental Rate<span class="text-red-500">*</span>
+          <span *ngIf="carForm.get('rental_rate')?.invalid && (carForm.get('rental_rate')?.dirty || carForm.get('rental_rate')?.touched)" class="text-red-500">
+            Rental rate is required.
+          </span>
+        </label>
+        <input formControlName="rental_rate" type="number" class="border border-gray-400 py-2 px-3 rounded-md focus:outline-none">
+      </div>
+      <div class="mb-3 flex gap-x-2 w-full">
+        <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-md">Save</button>
+        <button type="button" class="bg-red-500 text-white py-2 px-4 rounded-md" (click)="onCancel()">Cancel</button>
+      </div>
+    </form>
+  </div>
+</section>

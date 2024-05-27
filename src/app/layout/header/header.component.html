@@ -1,0 +1,15 @@
+<header class="fixed top-0 w-full h-16 bg-indigo-500 text-white flex items-center justify-between px-5">
+    <h1 class="text-xl font-bold">Car Rental</h1>
+    <h1 class="">
+        Welcome,
+        <span class="font-semibold">@if (user != null) { {{ user.name }} }</span>
+        <span class="color-red-500">@if (errMessage != null) { {{ errMessage }} }</span>
+    </h1>
+</header>
+
+<aside class="bg-indigo-500 text-white fixed w-64 h-full top-16">
+    <div class="flex flex-col px-5 gap-y-1">
+        <button class="text-start py-2 px-3 rounded-md hover:bg-indigo-400" [ngClass]="{'bg-indigo-400': isDashboardActive}" (click)="navigateToDashboard()">Dashboard</button>
+        <button class="text-start py-2 px-3 rounded-md hover:bg-indigo-400" [ngClass]="{'bg-indigo-400': isCarsActive}" (click)="navigateToCarList()">Cars</button>
+    </div>
+</aside>
